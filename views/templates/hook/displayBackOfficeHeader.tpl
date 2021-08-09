@@ -1,0 +1,1 @@
+<script type="text/javascript" src="{$pc_base_dir}views/js/froggycomments-backoffice.js"></script>
