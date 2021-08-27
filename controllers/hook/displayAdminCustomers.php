@@ -1,48 +1,58 @@
 <?php
-	/* Chapitre 6 Admin Controllers et hooks */
-	// On ajoute un sous-onglet géré par notre module dans l’administration des produits
-	class FroggyCommentsDisplayAdminCustomersController {
-		public function __construct($module, $file, $path) {
-			$this->file = $file;
-			$this->module = $module;
-			$this->context = Context::getContext();
-			$this->_path = $path;
-		}
+/**
+ *  @author    Ludovic Lemaître <contact@llemaitre.com>
+ *  @copyright 2021 Ludovic Lemaître
+ *  @license   https://github.com/l-lemaitre/froggycomments  Exemple
+*/
 
-		public function run() {
-			// Récupération du nombre de commentaires
-			$id_customer = (int)Tools::getValue('id_customer');
-        	$customer = new Customer($id_customer);
-			$nb_comments = FroggyComment::getCustomerNbComments($customer->email);
+/* Chapitre 6 Admin Controllers et hooks */
+// On ajoute un sous-onglet géré par notre module dans l’administration des produits
+class FroggyCommentsDisplayAdminCustomersController
+{
+    public function __construct($module, $file, $path)
+    {
+        $this->file = $file;
+        $this->module = $module;
+        $this->context = Context::getContext();
+        $this->_path = $path;
+    }
 
-			// Initialisation
-			$page = 1;
+    public function run()
+    {
+        // Récupération du nombre de commentaires
+        $id_customer = (int)Tools::getValue('id_customer');
+        $customer = new Customer($id_customer);
+        $nb_comments = FroggyComment::getCustomerNbComments($customer->email);
 
-			$nb_per_page = 5; //20
+        // Initialisation
+        $page = 1;
 
-			$nb_pages = ceil($nb_comments / $nb_per_page);
+        $nb_per_page = 5; //20
 
-			if(Tools::getIsset('page') && (int)Tools::getValue('page') > 0) {
-				$page = (int)Tools::getValue('page');
-			}
+        $nb_pages = ceil($nb_comments / $nb_per_page);
 
-			$limit_start = ($page - 1) * $nb_per_page;
+        if (Tools::getIsset('page') && (int)Tools::getValue('page') > 0) {
+            $page = (int)Tools::getValue('page');
+        }
 
-			$limit_end = $nb_per_page;
+        $limit_start = ($page - 1) * $nb_per_page;
 
-			// Récupération des commentaires
-			$comments = FroggyComment::getCustomerComments($customer->email, (int)$limit_start, (int)$limit_end);
+        $limit_end = $nb_per_page;
 
-			// On utilise la fonction getAdminLink pour fournit la base de l’URL du produit (voir dichier displayAdminCustomers.tpl ligne 22)
-        	$admin_product_link = $this->context->link->getAdminLink('AdminProducts', true);
+        // Récupération des commentaires
+        $comments = FroggyComment::getCustomerComments($customer->email, (int)$limit_start, (int)$limit_end);
 
-			// Assignation à Smarty des commentaires
-			$this->context->smarty->assign('page', $page);
-			$this->context->smarty->assign('nb_pages', $nb_pages);
-			$this->context->smarty->assign('comments', $comments);
+        // On utilise la fonction getAdminLink pour fournit la base de l’URL du produit (voir dichier
+        // displayAdminCustomers.tpl ligne 22)
+        $admin_product_link = $this->context->link->getAdminLink('AdminProducts', true);
 
-        	$this->context->smarty->assign('admin_product_link', $admin_product_link);
+        // Assignation à Smarty des commentaires
+        $this->context->smarty->assign('page', $page);
+        $this->context->smarty->assign('nb_pages', $nb_pages);
+        $this->context->smarty->assign('comments', $comments);
 
-			return $this->module->display($this->file, 'displayAdminCustomers.tpl');
-		}
-	}
+        $this->context->smarty->assign('admin_product_link', $admin_product_link);
+
+        return $this->module->display($this->file, 'displayAdminCustomers.tpl');
+    }
+}

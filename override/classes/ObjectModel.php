@@ -1,14 +1,22 @@
 <?php
-	class ObjectModel extends ObjectModelCore {
-		public function update($null_values = false) {
-			if(isset($this->firstname) && !$this->firstname) {
-				$this->firstname = null;
-			}
+/**
+ *  @author    Ludovic Lemaître <contact@llemaitre.com>
+ *  @copyright 2021 Ludovic Lemaître
+ *  @license   https://github.com/l-lemaitre/froggycomments  Exemple
+*/
 
-			if(isset($this->lastname) && !$this->lastname) {
-				$this->lastname = null;
-			}
+class ObjectModel extends ObjectModelCore
+{
+    public function update($null_values = false)
+    {
+        if (isset($this->firstname) && !$this->firstname) {
+            $this->firstname = null;
+        }
 
-		 	return parent::update($null_values);
-		}
-	}
+        if (isset($this->lastname) && !$this->lastname) {
+            $this->lastname = null;
+        }
+
+        return parent::update($null_values);
+    }
+}

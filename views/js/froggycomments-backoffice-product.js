@@ -1,4 +1,8 @@
-// JS Document
+/* JS Document
+ *  @author    Ludovic Lemaître <contact@llemaitre.com>
+ *  @copyright 2021 Ludovic Lemaître
+ *  @license   https://github.com/l-lemaitre/froggycomments  Exemple
+*/
 
  /* On saccroche à l’événement de clic concernant les éléments HTML qui ont la classe CSS comments-pagination-link correspondants aux 
  liens de pagination (Voir fichiers displayAdminProductsExtra.tpl ligne 32 et froggycomments.php ligne 203) */

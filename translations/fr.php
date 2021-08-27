@@ -27,7 +27,7 @@ $_MODULE['<{froggycomments}prestashop>adminfroggycommentscontroller_4ccd5566a380
 $_MODULE['<{froggycomments}prestashop>adminfroggycommentscontroller_c9cc8cce247e49bae79f15173ce97354'] = 'Enregistrer';
 $_MODULE['<{froggycomments}prestashop>adminfroggycommentscontroller_d3b206d196cd6be3a2764c1fb90b200f'] = 'Effacer la sélection';
 $_MODULE['<{froggycomments}prestashop>adminfroggycommentscontroller_c2c4812963ec13c7d109c124d3121560'] = 'Souhaitez-vous supprimer les éléments sélectionnés ?';
-$_MODULE['<{froggycomments}prestashop>adminfroggycommentscontroller_1020ac48d545bfc48195cace848be1cf'] = 'Affichage la variable';
+$_MODULE['<{froggycomments}prestashop>adminfroggycommentscontroller_1020ac48d545bfc48195cace848be1cf'] = 'Afficher la variable';
 $_MODULE['<{froggycomments}prestashop>adminfroggycommentscontroller_01da36bdc7136ee63b0c6ff9689576c6'] = 'Êtes-vous sûr ?';
 $_MODULE['<{froggycomments}prestashop>adminfroggycommentscontroller_a5865af7254d3bef31d4c963881d0fed'] = 'Commentaires des produits';
 $_MODULE['<{froggycomments}prestashop>adminfroggycommentscontroller_81f223f6627ed258abdcaeb5242971d1'] = 'Supprimer';
